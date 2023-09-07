@@ -1,0 +1,139 @@
+//
+//  MessagesViewController.swift
+//  PinnedEmojis MessagesExtension
+//
+//  Created by Ayush Satyavarpu on 9/4/23.
+//
+
+import UIKit
+import Messages
+
+class MessagesViewController: MSMessagesAppViewController {
+
+    let emojiOne = UIButton()
+    let emojiTwo = UIButton()
+    let emojiThree = UIButton()
+    let label = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        setupButtons()
+        
+        
+    }
+    
+    func setupButtons(){
+        view.addSubview(emojiOne)
+        view.addSubview(emojiTwo)
+        view.addSubview(emojiThree)
+        view.addSubview(label)
+        label.text = "F A V O R I T E D   E M O J I S"
+        label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
+        label.textColor = .systemGray2
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 5)
+        ])
+        emojiOne.configuration = .plain()
+        emojiTwo.configuration = .plain()
+        emojiThree.configuration = .plain()
+        emojiOne.translatesAutoresizingMaskIntoConstraints = false
+        emojiTwo.translatesAutoresizingMaskIntoConstraints = false
+        emojiThree.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emojiOne.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            emojiOne.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
+        ])
+        NSLayoutConstraint.activate([
+            emojiTwo.centerXAnchor.constraint(equalTo: emojiOne.centerXAnchor, constant: 50),
+            emojiTwo.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
+        ])
+        NSLayoutConstraint.activate([
+            emojiThree.centerXAnchor.constraint(equalTo: emojiTwo.centerXAnchor, constant: 50),
+            emojiThree.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
+        ])
+        
+        emojiOne.configuration?.title = "🥹"
+        emojiTwo.configuration?.title = "🗿"
+        emojiThree.configuration?.title = "🏆"
+
+        emojiOne.configuration?.attributedTitle = AttributedString(emojiOne.configuration!.title!, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 30)]))
+        emojiTwo.configuration?.attributedTitle = AttributedString(emojiTwo.configuration!.title!, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 30)]))
+        emojiThree.configuration?.attributedTitle = AttributedString(emojiThree.configuration!.title!, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 30)]))
+        
+        emojiOne.addTarget(self, action: #selector(enterEmoji(_:)), for: .touchUpInside)
+        emojiOne.addTarget(self, action:#selector(onUp(_:)), for: .touchDown)
+        emojiTwo.addTarget(self, action: #selector(enterEmoji(_:)), for: .touchUpInside)
+        emojiTwo.addTarget(self, action:#selector(onUp(_:)), for: .touchDown)
+        emojiThree.addTarget(self, action: #selector(enterEmoji(_:)), for: .touchUpInside)
+        emojiThree.addTarget(self, action:#selector(onUp(_:)), for: .touchDown)
+
+
+    }
+    
+    @objc func onUp(_ btn: UIButton){
+        UIView.animate(withDuration: 0.15) {
+                btn.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            }
+    }
+    
+    @objc func enterEmoji(_ btn: UIButton) {
+        UIView.animate(withDuration: 0.15) {
+                btn.transform = CGAffineTransform.identity
+            }
+        if let title = btn.configuration?.title {
+            self.activeConversation?.insertText(title)
+        }
+    }
+    
+    // MARK: - Conversation Handling
+    
+    override func willBecomeActive(with conversation: MSConversation) {
+        // Called when the extension is about to move from the inactive to active state.
+        // This will happen when the extension is about to present UI.
+        
+        // Use this method to configure the extension and restore previously stored state.
+    }
+    
+    override func didResignActive(with conversation: MSConversation) {
+        // Called when the extension is about to move from the active to inactive state.
+        // This will happen when the user dismisses the extension, changes to a different
+        // conversation or quits Messages.
+        
+        // Use this method to release shared resources, save user data, invalidate timers,
+        // and store enough state information to restore your extension to its current state
+        // in case it is terminated later.
+    }
+   
+    override func didReceive(_ message: MSMessage, conversation: MSConversation) {
+        // Called when a message arrives that was generated by another instance of this
+        // extension on a remote device.
+        
+        // Use this method to trigger UI updates in response to the message.
+    }
+    
+    override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
+        // Called when the user taps the send button.
+    }
+    
+    override func didCancelSending(_ message: MSMessage, conversation: MSConversation) {
+        // Called when the user deletes the message without sending it.
+    
+        // Use this to clean up state related to the deleted message.
+    }
+    
+    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        // Called before the extension transitions to a new presentation style.
+    
+        // Use this method to prepare for the change in presentation style.
+    }
+    
+    override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        // Called after the extension transitions to a new presentation style.
+    
+        // Use this method to finalize any behaviors associated with the change in presentation style.
+    }
+
+}
