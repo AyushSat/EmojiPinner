@@ -7,68 +7,168 @@
 
 import UIKit
 import Messages
+import CoreData
 
 class MessagesViewController: MSMessagesAppViewController {
 
-    let emojiOne = UIButton()
-    let emojiTwo = UIButton()
-    let emojiThree = UIButton()
-    let label = UILabel()
+    var emojis: [String] = []
+    var emojiButtons: [UIButton] = []
+    var label = UILabel()
+    var noEmojisLabel = UILabel()
+    var tempWrite = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupButtons()
-        
-        
+        loadData()
+        updateUI()
+        view.addSubview(tempWrite)
+        tempWrite.configuration = .filled()
+        tempWrite.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tempWrite.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tempWrite.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+        tempWrite.configuration?.title = "Update"
+        tempWrite.addTarget(self, action: #selector(writeData), for: .touchUpInside)
     }
     
-    func setupButtons(){
-        view.addSubview(emojiOne)
-        view.addSubview(emojiTwo)
-        view.addSubview(emojiThree)
+    @objc func writeData(){
+        emojis = ["🤌🏽", "💀", "📌"]
+        updateUI()
+        print(emojis)
+    }
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "EmojiPinner MessagesExtension")
+        container.loadPersistentStores(completionHandler: {
+            (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+        
+    }()
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
+    
+    
+    func loadData(){
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        let emojisPath = paths[0].appending(path: "emojis.txt")
+        do {
+            let input = try String(contentsOf: emojisPath)
+            if let jsonData = input.data(using: .utf8){
+                do{
+                    if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String] {
+                        emojis = jsonArray
+                    }else{
+                        print("Could not be cast")
+                    }
+                }catch {
+                    print("Error parsing JSON \(error)")
+                }
+            }else{
+                print("Error converting JSON to data")
+            }
+        }catch {
+            do{
+                try "[]".write(to: emojisPath, atomically: true, encoding: .utf8)
+                let input = try String(contentsOf: emojisPath)
+                if let jsonData = input.data(using: .utf8){
+                    do{
+                        if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String] {
+                            emojis = jsonArray
+                        }else{
+                            print("Could not be cast")
+                        }
+                    }catch {
+                        print("Error parsing JSON \(error)")
+                    }
+                }else{
+                    print("Error converting JSON to data")
+                }
+            }catch {
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func setupLabel(){
         view.addSubview(label)
         label.text = "F A V O R I T E D   E M O J I S"
         label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         label.textColor = .systemGray2
+        label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 5)
         ])
-        emojiOne.configuration = .plain()
-        emojiTwo.configuration = .plain()
-        emojiThree.configuration = .plain()
-        emojiOne.translatesAutoresizingMaskIntoConstraints = false
-        emojiTwo.translatesAutoresizingMaskIntoConstraints = false
-        emojiThree.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            emojiOne.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            emojiOne.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-        ])
-        NSLayoutConstraint.activate([
-            emojiTwo.centerXAnchor.constraint(equalTo: emojiOne.centerXAnchor, constant: 50),
-            emojiTwo.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-        ])
-        NSLayoutConstraint.activate([
-            emojiThree.centerXAnchor.constraint(equalTo: emojiTwo.centerXAnchor, constant: 50),
-            emojiThree.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-        ])
-        
-        emojiOne.configuration?.title = "🥹"
-        emojiTwo.configuration?.title = "🗿"
-        emojiThree.configuration?.title = "🏆"
+    }
+    
+    func updateUI() {
+        // Remove existing buttons from the view
+        for button in emojiButtons {
+            button.removeFromSuperview()
+        }
+        noEmojisLabel.removeFromSuperview()
+        emojiButtons.removeAll()
 
-        emojiOne.configuration?.attributedTitle = AttributedString(emojiOne.configuration!.title!, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 30)]))
-        emojiTwo.configuration?.attributedTitle = AttributedString(emojiTwo.configuration!.title!, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 30)]))
-        emojiThree.configuration?.attributedTitle = AttributedString(emojiThree.configuration!.title!, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 30)]))
-        
-        emojiOne.addTarget(self, action: #selector(enterEmoji(_:)), for: .touchUpInside)
-        emojiOne.addTarget(self, action:#selector(onUp(_:)), for: .touchDown)
-        emojiTwo.addTarget(self, action: #selector(enterEmoji(_:)), for: .touchUpInside)
-        emojiTwo.addTarget(self, action:#selector(onUp(_:)), for: .touchDown)
-        emojiThree.addTarget(self, action: #selector(enterEmoji(_:)), for: .touchUpInside)
-        emojiThree.addTarget(self, action:#selector(onUp(_:)), for: .touchDown)
+        // Re-create buttons based on the updated emojis array
+        setupLabel()
+        setupButtons()
+    }
+    
+    func setupButtons(){
+        if(emojis.isEmpty){
+            view.addSubview(noEmojisLabel)
+            noEmojisLabel.text = "No emojis favorited yet. Swipe up to add some!"
+            noEmojisLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+            noEmojisLabel.textColor = .systemGray2
+            NSLayoutConstraint.activate([
+                noEmojisLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+                noEmojisLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10)
+            ])
+            noEmojisLabel.translatesAutoresizingMaskIntoConstraints = false
+            return
+        }
+        for (i, emoji) in emojis.enumerated() {
+            let currButton = UIButton()
+            view.addSubview(currButton)
+            currButton.configuration = .plain()
+            currButton.translatesAutoresizingMaskIntoConstraints = false
+            if i == 0 {
+                NSLayoutConstraint.activate([
+                    currButton.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+                    currButton.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 25),
+                ])
+            }else{
+                let prevButton = emojiButtons[i - 1]
+                NSLayoutConstraint.activate([
+                    currButton.centerXAnchor.constraint(equalTo: prevButton.centerXAnchor, constant: 50),
+                    currButton.centerYAnchor.constraint(equalTo: label.bottomAnchor, constant: 25),
+                ])
+            }
+            currButton.configuration?.title = emoji
+            currButton.configuration?.attributedTitle = AttributedString(currButton.configuration!.title!, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 30)]))
+            currButton.addTarget(self, action: #selector(enterEmoji(_:)), for: .touchUpInside)
+            currButton.addTarget(self, action:#selector(onUp(_:)), for: .touchDown)
+            emojiButtons.append(currButton)
+        }
 
 
     }

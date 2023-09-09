@@ -12,6 +12,8 @@
 		D08843FB2AAA24EE005DF382 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08843FA2AAA24EE005DF382 /* Messages.framework */; };
 		D08843FE2AAA24EE005DF382 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08843FD2AAA24EE005DF382 /* MessagesViewController.swift */; };
 		D08844032AAA24EF005DF382 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08844022AAA24EF005DF382 /* Assets.xcassets */; };
+		D0C5C2BA2AAAF119001F0100 /* CDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C5C2B82AAAEFEF001F0100 /* CDHelper.swift */; };
+		D0CB36232AAC258C00286D0D /* Emojis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0CB36212AAC258C00286D0D /* Emojis.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		D08843FD2AAA24EE005DF382 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		D08844022AAA24EF005DF382 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D08844042AAA24EF005DF382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0C5C2B62AAAEE79001F0100 /* EmojiPinner MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EmojiPinner MessagesExtension.entitlements"; sourceTree = "<group>"; };
+		D0C5C2B72AAAEFEE001F0100 /* EmojiPinner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmojiPinner-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0C5C2B82AAAEFEF001F0100 /* CDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CDHelper.swift; path = "EmojiPinner MessagesExtension/CDHelper.swift"; sourceTree = SOURCE_ROOT; };
+		D0CB36222AAC258C00286D0D /* Emojis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Emojis.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +104,13 @@
 		D08843FC2AAA24EE005DF382 /* EmojiPinner MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				D0C5C2B62AAAEE79001F0100 /* EmojiPinner MessagesExtension.entitlements */,
 				D08843FD2AAA24EE005DF382 /* MessagesViewController.swift */,
 				D08844022AAA24EF005DF382 /* Assets.xcassets */,
 				D08844042AAA24EF005DF382 /* Info.plist */,
+				D0C5C2B82AAAEFEF001F0100 /* CDHelper.swift */,
+				D0C5C2B72AAAEFEE001F0100 /* EmojiPinner-Bridging-Header.h */,
+				D0CB36212AAC258C00286D0D /* Emojis.xcdatamodeld */,
 			);
 			path = "EmojiPinner MessagesExtension";
 			sourceTree = "<group>";
@@ -154,6 +164,7 @@
 				TargetAttributes = {
 					D08843EB2AAA24ED005DF382 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					D08843F42AAA24EE005DF382 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -203,6 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0CB36232AAC258C00286D0D /* Emojis.xcdatamodeld in Sources */,
+				D0C5C2BA2AAAF119001F0100 /* CDHelper.swift in Sources */,
 				D08843FE2AAA24EE005DF382 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -322,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -336,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "EmojiPinner MessagesExtension/EmojiPinner MessagesExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KF4439884J;
@@ -362,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = "EmojiPinner MessagesExtension/EmojiPinner MessagesExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KF4439884J;
@@ -389,6 +404,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KF4439884J;
@@ -396,11 +412,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayushsatyavarpu.EmojiPinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "EmojiPinner MessagesExtension/EmojiPinner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -411,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KF4439884J;
@@ -418,11 +437,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayushsatyavarpu.EmojiPinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "EmojiPinner MessagesExtension/EmojiPinner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,6 +479,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0CB36212AAC258C00286D0D /* Emojis.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0CB36222AAC258C00286D0D /* Emojis.xcdatamodel */,
+			);
+			currentVersion = D0CB36222AAC258C00286D0D /* Emojis.xcdatamodel */;
+			path = Emojis.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D08843E62AAA24ED005DF382 /* Project object */;
 }
