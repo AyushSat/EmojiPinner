@@ -97,7 +97,7 @@ class MessagesViewController: MSMessagesAppViewController {
         ])
         self.mainTextConstraint?.isActive = true
         mainTextField.translatesAutoresizingMaskIntoConstraints = false
-        mainTextField.placeholder = "Hello World"
+        mainTextField.placeholder = "Enter emoji"
         mainTextField.font = UIFont.systemFont(ofSize: 15)
         mainTextField.borderStyle = .roundedRect
         mainTextField.keyboardType = .default
