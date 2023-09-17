@@ -9,16 +9,6 @@ import UIKit
 import Messages
 import CoreData
 
-func generateRandomEmoji() -> String {
-    let emojiRanges: [ClosedRange<UInt32>] = [
-        0x1F600...0x1F64F
-    ]
-
-    let randomRange = emojiRanges.randomElement()!
-    let randomEmoji = UnicodeScalar(randomRange.lowerBound + arc4random_uniform(randomRange.upperBound - randomRange.lowerBound + 1))!
-    return String(randomEmoji)
-}
-
 struct UIButtonWrapper{
     var button: UIButton
     var trailingConstraint: NSLayoutConstraint

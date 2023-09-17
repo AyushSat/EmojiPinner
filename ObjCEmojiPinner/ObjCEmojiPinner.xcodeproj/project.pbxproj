@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0D4B88C2AB58E3A006CC769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D4B88B2AB58E3A006CC769 /* Assets.xcassets */; };
+		D0D4B8922AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D0D4B8912AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D0D4B8972AB58E3A006CC769 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D4B8962AB58E3A006CC769 /* Messages.framework */; };
+		D0D4B89B2AB58E3B006CC769 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D4B89A2AB58E3B006CC769 /* MessagesViewController.m */; };
+		D0D4B8A02AB58E3B006CC769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D4B89F2AB58E3B006CC769 /* Assets.xcassets */; };
+		D0D4B8AD2AB634A3006CC769 /* EmojiModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0D4B8AB2AB634A3006CC769 /* EmojiModel.xcdatamodeld */; };
+		D0D4B8B02AB635C0006CC769 /* CDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D4B8AF2AB635C0006CC769 /* CDHelper.m */; };
+		D0D4B8DA2AB64106006CC769 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D4B8D92AB64106006CC769 /* CoreData.framework */; };
+		D0D4B8E52AB6CB03006CC769 /* UIButtonWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D4B8E42AB6CB03006CC769 /* UIButtonWrapper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0D4B8932AB58E3A006CC769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0D4B8822AB58E38006CC769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0D4B8902AB58E3A006CC769;
+			remoteInfo = "ObjCEmojiPinner MessagesExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D0D4B8A72AB58E3B006CC769 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D0D4B8922AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D0D4B8882AB58E38006CC769 /* ObjCEmojiPinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCEmojiPinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0D4B88B2AB58E3A006CC769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0D4B8912AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ObjCEmojiPinner MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0D4B8962AB58E3A006CC769 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		D0D4B8992AB58E3A006CC769 /* MessagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		D0D4B89A2AB58E3B006CC769 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		D0D4B89F2AB58E3B006CC769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0D4B8A12AB58E3B006CC769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0D4B8AC2AB634A3006CC769 /* EmojiModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EmojiModel.xcdatamodel; sourceTree = "<group>"; };
+		D0D4B8AE2AB635AA006CC769 /* CDHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDHelper.h; sourceTree = "<group>"; };
+		D0D4B8AF2AB635C0006CC769 /* CDHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDHelper.m; sourceTree = "<group>"; };
+		D0D4B8D92AB64106006CC769 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D0D4B8E42AB6CB03006CC769 /* UIButtonWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIButtonWrapper.m; sourceTree = "<group>"; };
+		D0D4B8E62AB6CB0D006CC769 /* UIButtonWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIButtonWrapper.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0D4B88E2AB58E3A006CC769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0D4B8972AB58E3A006CC769 /* Messages.framework in Frameworks */,
+				D0D4B8DA2AB64106006CC769 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0D4B8812AB58E38006CC769 = {
+			isa = PBXGroup;
+			children = (
+				D0D4B88A2AB58E38006CC769 /* ObjCEmojiPinner */,
+				D0D4B8982AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension */,
+				D0D4B8952AB58E3A006CC769 /* Frameworks */,
+				D0D4B8892AB58E38006CC769 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0D4B8892AB58E38006CC769 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0D4B8882AB58E38006CC769 /* ObjCEmojiPinner.app */,
+				D0D4B8912AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0D4B88A2AB58E38006CC769 /* ObjCEmojiPinner */ = {
+			isa = PBXGroup;
+			children = (
+				D0D4B88B2AB58E3A006CC769 /* Assets.xcassets */,
+			);
+			path = ObjCEmojiPinner;
+			sourceTree = "<group>";
+		};
+		D0D4B8952AB58E3A006CC769 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0D4B8D92AB64106006CC769 /* CoreData.framework */,
+				D0D4B8962AB58E3A006CC769 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0D4B8982AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension */ = {
+			isa = PBXGroup;
+			children = (
+				D0D4B8992AB58E3A006CC769 /* MessagesViewController.h */,
+				D0D4B89A2AB58E3B006CC769 /* MessagesViewController.m */,
+				D0D4B89F2AB58E3B006CC769 /* Assets.xcassets */,
+				D0D4B8A12AB58E3B006CC769 /* Info.plist */,
+				D0D4B8AB2AB634A3006CC769 /* EmojiModel.xcdatamodeld */,
+				D0D4B8AE2AB635AA006CC769 /* CDHelper.h */,
+				D0D4B8AF2AB635C0006CC769 /* CDHelper.m */,
+				D0D4B8E42AB6CB03006CC769 /* UIButtonWrapper.m */,
+				D0D4B8E62AB6CB0D006CC769 /* UIButtonWrapper.h */,
+			);
+			path = "ObjCEmojiPinner MessagesExtension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0D4B8872AB58E38006CC769 /* ObjCEmojiPinner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0D4B8A82AB58E3B006CC769 /* Build configuration list for PBXNativeTarget "ObjCEmojiPinner" */;
+			buildPhases = (
+				D0D4B8862AB58E38006CC769 /* Resources */,
+				D0D4B8A72AB58E3B006CC769 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0D4B8942AB58E3A006CC769 /* PBXTargetDependency */,
+			);
+			name = ObjCEmojiPinner;
+			productName = ObjCEmojiPinner;
+			productReference = D0D4B8882AB58E38006CC769 /* ObjCEmojiPinner.app */;
+			productType = "com.apple.product-type.application.messages";
+		};
+		D0D4B8902AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0D4B8A42AB58E3B006CC769 /* Build configuration list for PBXNativeTarget "ObjCEmojiPinner MessagesExtension" */;
+			buildPhases = (
+				D0D4B88D2AB58E3A006CC769 /* Sources */,
+				D0D4B88E2AB58E3A006CC769 /* Frameworks */,
+				D0D4B88F2AB58E3A006CC769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObjCEmojiPinner MessagesExtension";
+			productName = "ObjCEmojiPinner MessagesExtension";
+			productReference = D0D4B8912AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0D4B8822AB58E38006CC769 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D0D4B8872AB58E38006CC769 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					D0D4B8902AB58E3A006CC769 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = D0D4B8852AB58E38006CC769 /* Build configuration list for PBXProject "ObjCEmojiPinner" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0D4B8812AB58E38006CC769;
+			productRefGroup = D0D4B8892AB58E38006CC769 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0D4B8872AB58E38006CC769 /* ObjCEmojiPinner */,
+				D0D4B8902AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0D4B8862AB58E38006CC769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0D4B88C2AB58E3A006CC769 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0D4B88F2AB58E3A006CC769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0D4B8A02AB58E3B006CC769 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0D4B88D2AB58E3A006CC769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0D4B8AD2AB634A3006CC769 /* EmojiModel.xcdatamodeld in Sources */,
+				D0D4B89B2AB58E3B006CC769 /* MessagesViewController.m in Sources */,
+				D0D4B8B02AB635C0006CC769 /* CDHelper.m in Sources */,
+				D0D4B8E52AB6CB03006CC769 /* UIButtonWrapper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0D4B8942AB58E3A006CC769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0D4B8902AB58E3A006CC769 /* ObjCEmojiPinner MessagesExtension */;
+			targetProxy = D0D4B8932AB58E3A006CC769 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D0D4B8A22AB58E3B006CC769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D0D4B8A32AB58E3B006CC769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0D4B8A52AB58E3B006CC769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KF4439884J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ObjCEmojiPinner MessagesExtension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ObjCEmojiPinner;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayushsatyavarpu.ObjCEmojiPinner.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D0D4B8A62AB58E3B006CC769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KF4439884J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ObjCEmojiPinner MessagesExtension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ObjCEmojiPinner;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayushsatyavarpu.ObjCEmojiPinner.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D0D4B8A92AB58E3B006CC769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KF4439884J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayushsatyavarpu.ObjCEmojiPinner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D0D4B8AA2AB58E3B006CC769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KF4439884J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayushsatyavarpu.ObjCEmojiPinner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0D4B8852AB58E38006CC769 /* Build configuration list for PBXProject "ObjCEmojiPinner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0D4B8A22AB58E3B006CC769 /* Debug */,
+				D0D4B8A32AB58E3B006CC769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0D4B8A42AB58E3B006CC769 /* Build configuration list for PBXNativeTarget "ObjCEmojiPinner MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0D4B8A52AB58E3B006CC769 /* Debug */,
+				D0D4B8A62AB58E3B006CC769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0D4B8A82AB58E3B006CC769 /* Build configuration list for PBXNativeTarget "ObjCEmojiPinner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0D4B8A92AB58E3B006CC769 /* Debug */,
+				D0D4B8AA2AB58E3B006CC769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0D4B8AB2AB634A3006CC769 /* EmojiModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0D4B8AC2AB634A3006CC769 /* EmojiModel.xcdatamodel */,
+			);
+			currentVersion = D0D4B8AC2AB634A3006CC769 /* EmojiModel.xcdatamodel */;
+			path = EmojiModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D0D4B8822AB58E38006CC769 /* Project object */;
+}
