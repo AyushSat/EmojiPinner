@@ -16,6 +16,4 @@ https://github.com/AyushSat/EmojiPinner/assets/18633636/0226bc00-81a1-479d-9eb4-
 
 https://github.com/AyushSat/EmojiPinner/assets/18633636/e2fe583a-5a1f-4688-850b-bb017a8ce6d9
 
-**The old, slow current method of adding new emojis:**
-
-https://github.com/AyushSat/EmojiPinner/assets/18633636/5eb75e62-33a7-43c4-b9da-ba5a99dec199
+Built using Swift, Objective-C, and UIKit.
